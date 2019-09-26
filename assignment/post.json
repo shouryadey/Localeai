@@ -1,0 +1,21 @@
+{
+	"userid":"2",
+	"vehiclemodelid":3,
+	"packageid":4,
+	"traveltypeid":5,
+	"fromareaid":6,
+	"toareaid":7,
+	"fromcityid":8,
+	"tocityid":9,
+	"fromdate":"1994-11-29  20:00",
+	"todate":"1994-11-29  20:00",
+	"onlinebooking":12,
+	"mobilesitebooking":13,
+	"bookingcreated":"1994-11-29  20:00",
+	"fromlat":15.01,
+	"fromlong":16.01,
+	"tolat":17.01,
+	"tolong":18.01,
+	"carcancellation":19 
+	
+}

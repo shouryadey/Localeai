@@ -1,0 +1,102 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+
+	"gopkg.in/go-playground/validator.v9"
+)
+
+var WorkQueue = make(chan WorkRequest, 15000)
+
+func Collector(w http.ResponseWriter, r *http.Request) {
+
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	//fmt.Println(reqBody)
+	var newentry WorkRequest
+
+	json.Unmarshal(reqBody, &newentry)
+
+	validate := validator.New()
+	err2 := validate.Struct(newentry)
+	if err2 != nil {
+		fmt.Println("error at validation", err2.Error())
+		fmt.Fprintf(w, (string)(err2.Error()))
+		return
+	}
+
+	id++
+	newentry.ID = id
+	WorkQueue <- newentry
+	reqbody, err1 := json.Marshal(map[string]int{"ID": newentry.ID})
+	if err1 != nil {
+		fmt.Println(err1)
+	}
+
+	resp, err3 := http.Post("http://localhost:8080/isinserted", "application/json", bytes.NewBuffer(reqbody))
+
+	//	nr, err3 := http.NewRequest("GET", "http://localhost:8080/isinserted", bytes.NewBuffer(reqbody))
+	//	nr.Header.Set("Content-type", "application/json")
+	if err3 != nil {
+		fmt.Println(err3)
+	}
+
+	//client := http.Client{Timeout: time.Duration(5 * time.Second)}
+
+	//_, err5 := client.Do(nr)
+	//if err5 != nil {
+	//		fmt.Println(err5)
+	//	}
+
+	//	resp, err4 := client.Do(nr)
+	//	if err4 != nil {
+	//		fmt.Println("error4", err4)
+	//	}
+
+	respbody, err7 := ioutil.ReadAll(resp.Body)
+	defer resp.Body.Close()
+	if err7 != nil {
+		println(err7)
+	}
+	/*	json, err6 := json.Marshal(resp)
+		if err6 != nil {
+			fmt.Println("error6", err6)
+		}
+		fmt.Println((string)(json))
+	*/w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(respbody)
+
+	//http.Redirect(w, nr, "http://localhost:8080/isinserted", 301)
+
+}
+
+/*
+func generateresponse(ID int, response *Response) {
+	starttime := time.Now()
+	for math.Abs((starttime.Sub(time.Now()).Seconds())) <= 90 {
+
+		shared.mu.RLock()
+		_, ok := shared.set[ID]
+		shared.mu.RUnlock()
+		if ok {
+			response.Message = "Success"
+			response.ID = strconv.FormatInt((int64)(ID), 10)
+			response.status = 200
+			return
+		}
+	}
+
+	response.Message = "Failure,try again"
+	response.ID = "__"
+	response.status = 500
+	return
+}
+*/
