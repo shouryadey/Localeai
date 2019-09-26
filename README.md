@@ -1,6 +1,6 @@
-## THE AIM IS TO INSERT DATA IN POSTGRES SQL AND PROVIDE SUITABLE RESPONSE WHILE MANAGING BURST OF REQUESTS
+# THE AIM IS TO INSERT DATA IN POSTGRES SQL AND PROVIDE SUITABLE RESPONSE WHILE MANAGING BURST OF REQUESTS
 
-### The Idea is to queue requests(work) , use workers to process requests , dispatchers to assign work to workers,provide response using shared cache(to keep track of the request processed) 
+## The Idea is to queue requests(work) , use workers to process requests , dispatchers to assign work to workers,provide response using shared cache(to keep track of the request processed) 
 
 ###### Collector:
         Gets request and pushes the required information to the queue(WorkQueue)
