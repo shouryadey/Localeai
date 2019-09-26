@@ -6,7 +6,7 @@
 ###### Collector:
         Gets request and pushes the required information to the queue(WorkQueue)
 ###### Work Queue:
-        Use a buffered channel so the colector is not blocked
+        Use a buffered channel so the collector is not blocked
 ###### Dispatcher:
         Dipatcher distributes work among workers from WorkQueue
 ###### Workers:
