@@ -14,7 +14,10 @@
         Responsible for storing data in database  and updating shared cache
 ###### Shared cache:
         Used to keep track of the request stored in the database ,once the response is generated the ID is removed from the cache
-
+###### SETUP
+        move to the /assignment directory
+        $ go build -o queued *.go
+        $ ./queued 
 
 #### RESULTS :Load tested with Vegeta, Capable of processing 20-24 concurrent requests/s with timeouts of 60s
 #### IMPROVEMENTS:
