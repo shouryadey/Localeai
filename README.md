@@ -10,7 +10,7 @@
 ###### Work Queue:
         Use a buffered channel so the collector is not blocked
 ###### Dispatcher:
-        Dipatcher distributes work among workers from WorkQueue
+        Dispatcher distributes work among workers from WorkQueue
 ###### Workers:
         Responsible for storing data in database  and updating shared cache
 ###### Shared cache:
