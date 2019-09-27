@@ -62,7 +62,7 @@ func Collector(w http.ResponseWriter, r *http.Request) { //api to add each reque
 
 func generateresponse(ID int64, response *Response) {
 	starttime := time.Now()
-	for math.Abs((starttime.Sub(time.Now()).Seconds())) <= 30 {
+	for math.Abs((starttime.Sub(time.Now()).Seconds())) <= 60 {
 
 		shared.mu.RLock()
 		_, ok := shared.cache[ID]
