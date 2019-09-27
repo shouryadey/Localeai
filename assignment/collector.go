@@ -45,7 +45,7 @@ func Collector(w http.ResponseWriter, r *http.Request) { //api to add each reque
 	id++
 	newentry.ID = id
 
-	//insert in worker queue
+	//insert in work queue
 	WorkQueue <- newentry
 	var response Response
 
