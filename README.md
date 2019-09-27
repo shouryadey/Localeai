@@ -1,4 +1,3 @@
-#### PROBLEM: To insert data in postgreSQL database and generating suitable response while managing burst requests
 
 #### PROBLEM: To insert data in postgres SQL database and generating suitable response while managing burst requests
 
