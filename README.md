@@ -20,7 +20,7 @@
 #### RESULTS :Load tested with Vegeta, Capable of processing 20-24 concurrent requests/s with timeouts of 60s
 #### IMPROVEMENTS:
 Further improvements can be made by having more servers with 
-        
- 1)Load balancing
 
- 2) Instead of waiting for the response and showing timeout after a time interval ,we can also use an event triggered (event being a successful insertion in database) solution,where we can generate a SMS response to the user whenever a data is inserted in the database.
+1)Load balancing
+
+2)Instead of waiting for the response and showing timeout after a time interval ,we can also use an event triggered (event being a successful insertion in database) solution,where we can generate a SMS response to the user whenever a data is inserted in the database.
