@@ -20,6 +20,3 @@
 #### RESULTS :Load tested with Vegeta, Capable of processing 20-24 concurrent requests/s with timeouts of 60s
     
 
-#### RESULTS :Load tested with Vegeta, Capable of processing 20-24 concurrent requests/s with timeouts of 30s
-    
-
