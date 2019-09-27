@@ -21,4 +21,4 @@
 #### IMPROVEMENTS:
 1)Further improvements can be made by having more servers with load balancing
 
-2)Instead of waiting for the response and showing timeout after a time interval ,we can also use an event triggered (event being a successful insertion in database) solution,where we can generate a SMS response to the user whenever a data is inserted in the database.
+2)Instead of waiting for the response and showing timeout after a time interval ,we can also use an event triggered (event being a successful insertion in database) solution,where we can generate an SMS response to the user whenever a data is inserted in the database.
