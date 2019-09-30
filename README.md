@@ -19,7 +19,7 @@
         $ go build -o queued *.go
         $ ./queued 
 
-#### RESULTS :Load tested with Vegeta, Capable of processing 20-24 concurrent requests/s with timeouts of 60s
+#### RESULTS :Load tested with Vegeta, capable of processing 20-24 concurrent requests/s with timeouts of 60s
 #### IMPROVEMENTS:
 1)Further improvements can be made by having more servers with load balancing
 
